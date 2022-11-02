@@ -83,7 +83,7 @@ async def dog():
         wdt.feed()
         await asyncio.sleep(10)
 
-if(esp32shw.TL21.value()):loop.create_task(dog())
+if(esp32s2hw.TL21.value()):loop.create_task(dog())
 
 async def sporic():
     await asyncio.sleep(30)
@@ -170,13 +170,6 @@ mws2.SetEmbeddedConfig()
 mws2.RootPath = '/www'
 mws2.NotFoundURL = '/'
 mws2.StartManaged()
-async def web():
-    await asyncio.sleep(10)
-    if(debug):print('start WEB')
-    while(mws2.IsRunning):
-        await asyncio.sleep(1)
-
-loop.create_task(web())
 
 def systemstart():
     if(debug):print("start loop")

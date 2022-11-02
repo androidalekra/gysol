@@ -1,2 +1,3 @@
-ap = ['APName','passwd']
+ap = None
+#ap = ['APName','passwd']
 mdns="gysol"#mdns name "http://gysol.local"

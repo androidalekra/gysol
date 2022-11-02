@@ -22,6 +22,9 @@ Baterie Li-ion 1S 15Ah
 ![zapojeni](obrazky/zapojenil.png)
 [zapojeni](obrazky/zapojeni.png)
 
+![box](obrazky/box1l.png)
+[box](obrazky/box1.png)
+
 Motorem celého zařízení je [Micropython](https://micropython.org/)
 
 firmware nahraný do flash s [postupem](https://micropython.org/download/ESP32_S2_WROVER/)

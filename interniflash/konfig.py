@@ -1,2 +1,2 @@
-ap = ['apecko','heslo']
+ap = None#['apecko','heslo']
 mdns="meteosolar"

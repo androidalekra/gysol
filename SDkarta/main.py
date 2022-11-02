@@ -4,27 +4,28 @@
 """
 debug=True
 zamek=True
+net=False
 #debug=False
 if(debug):print('START SD main.py')
 import esp32s2hw
 
 if(debug):print('zapnuti wifi AP')
-import wifi,time
-if(wifi.pripoj()!=1):
+import wifi,time,konfig
+if(konfig.ap is None):
     try:
         wifi.zapniAP()
     except:
-        from machine import deepsleep
-        esp32s2hw.PER.value(0)
-        esp32s2hw.LEDZ.value(0)
-        esp32s2hw.LEDR.value(0)
-        deepsleep(5000)
+        if(debug):print('AP se nepovedlo zapnout')
+        esp32s2hw.LEDR.value(1)
     if(debug):print('zapnuti DNS')
     from microDNSSrv import MicroDNSSrv
     MicroDNSSrv.Create( {"*.*" : "192.168.4.1" , "*" : "192.168.4.1"} )
-    net=False
 else:
-    net=True
+    if(wifi.pripoj()):
+        net=True
+    else:
+        esp32s2hw.LEDR.value(1)
+        
 
 if(debug):print('inicializace periferiji')
 import sht40,ms5637,ina219,ds3231,time,sys
